@@ -28,7 +28,7 @@ const apiCall = {
   "topic": "/market/ticker:ROUTE-USDT",
   "response": true
 };
-let ws = new ReconnectingWebSocket("wss://ws-api.kucoin.com/endpoint?token=2neAiuYvAU61ZDXANAGAsiL4-iAExhsBXZxftpOeh_55i3Ysy2q2LEsEWU64mdzUOPusi34M_wGoSf7iNyEWJ1G4RHWxlYNMwXT9PYo3TYy3OfkSovJ-ZtiYB9J6i9GjsxUuhPw3BlrzazF6ghq4L1INA2oyLqaRvdu8Idt2-Xg=.VMzku0NcTHdSbWfdzhZr_A==&[connectId=1545910660739]");
+let ws = new ReconnectingWebSocket("wss://ws-api.kucoin.com/endpoint?token=2neAiuYvAU61ZDXANAGAsiL4-iAExhsBXZxftpOeh_55i3Ysy2q2LEsEWU64mdzUOPusi34M_wGoSf7iNyEWJxSHXAoL0l-7Vr0g_mKH9HwopqmMZVcWndiYB9J6i9GjsxUuhPw3BlrzazF6ghq4L-vihvyuIrkaTtSdPBXT0QQ=.wzfufrDIek_8hP-6bZAcgw==&[connectId=1545910660739]");
 let connect = function(){
     ws.onopen = function() {
       ws.send(JSON.stringify(apiCall));
@@ -44,10 +44,10 @@ function  App() {
 
   ws.onmessage = function (event) {
     const json = JSON.parse(event.data);
-    console.log(json?.data?.price)
+    // console.log(json?.data?.price)
     try {
       if ((json.event = "data" && json.data)) {
-        console.log("old price", price)
+        // console.log("old price", price)
         setPrice(json.data.price);
       }
     
