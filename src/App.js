@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import BGimg from "./assesets/routerlogowhite.svg";
 import {Typography } from "@mui/material";
@@ -41,7 +41,7 @@ connect();
 function  App() {
   //give an initial state so that the data won't be undefined at start
   const [price, setPrice] = useState([0]);
-
+  const [token, setToken] = useState();
   ws.onmessage = function (event) {
     const json = JSON.parse(event.data);
     // console.log(json?.data?.price)
