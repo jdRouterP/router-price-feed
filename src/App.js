@@ -28,8 +28,9 @@ const apiCall = {
 };
 async function getToken() {
   try {
-    const response = await axios.post('https://api.kucoin.com/api/v1/bullet-public');
-    return response?.data?.data?.token;
+    const response = await axios.get('https://api.routerprotocol.com/accesstoken');
+    
+    return response?.data?.token;
   } catch (error) {
     console.error(error);
     return undefined;
